@@ -43,3 +43,11 @@ if __name__ == "__main__":
     # Zeabur 會自動分配 port，如果沒有則預設 8080
     port = int(os.environ.get("PORT", 8080))
     uvicorn.run(app, host="0.0.0.0", port=port)
+    import os
+import uvicorn
+from main_app import app # 假設你的 FastAPI 實例叫 app
+
+if __name__ == "__main__":
+    # 強制使用 Zeabur 提供的環境變數 PORT，預設為 80
+    port = int(os.environ.get("PORT", 80))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, proxy_headers=True)
