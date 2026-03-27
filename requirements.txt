@@ -1,6 +1,6 @@
+ccxt>=4.2.0
 fastapi
 uvicorn
-ccxt
 pandas
 pandas_ta
 jinja2
