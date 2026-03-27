@@ -36,3 +36,10 @@ async def start(): asyncio.create_task(trading_loop())
 @app.get("/")
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "history": history})
+    import os
+import uvicorn
+
+if __name__ == "__main__":
+    # Zeabur 會自動分配 port，如果沒有則預設 8080
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
